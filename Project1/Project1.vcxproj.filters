@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Geometries">
+      <UniqueIdentifier>{ec1477fa-e3b4-438a-a374-ef0664914e93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometries\Sphere">
+      <UniqueIdentifier>{2caa14ac-b0ed-4032-8c59-331e4820bc03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{66bb3366-bed9-42d1-bb3f-de6e7646667b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Vector">
+      <UniqueIdentifier>{2ded7e03-b4d2-44f2-a8f7-4f73fdfcf936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\HittableList">
+      <UniqueIdentifier>{4d9c046e-c742-41ac-a309-8be883736b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{e25d4174-960d-4889-ada4-b7b2bb931fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{06aa6376-8c7b-4da4-8438-5eb03c0e3765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreadPool">
+      <UniqueIdentifier>{8eb82270-f91e-40cc-b185-e2e5e3a10ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ray Cast">
+      <UniqueIdentifier>{1937dbf9-5be3-40c3-b494-c2f8f5572d0a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sphere.cc">
+      <Filter>Geometries\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="render.cc">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="vec3.cc">
+      <Filter>Utilities\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="hittablelist.cc">
+      <Filter>Utilities\HittableList</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cc" />
+    <ClCompile Include="threadpool.cc">
+      <Filter>ThreadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="raycast.cc">
+      <Filter>Ray Cast</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sphere.h">
+      <Filter>Geometries\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="render.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
+      <Filter>Utilities\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="hittablelist.h">
+      <Filter>Utilities\HittableList</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="hittable.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="state.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="lambertian.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="threadpool.h">
+      <Filter>ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="raycast.h">
+      <Filter>Ray Cast</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
