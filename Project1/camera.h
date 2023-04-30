@@ -27,7 +27,7 @@ public:
 		lower_left_corner = position - horizontal / 2 - vertical / 2 - Vec3(0, 0, focal_length);
 	}
 
-	Ray get_ray(double u, double v)
+	Ray get_ray(double u, double v) const
 	{
 		return Ray(position, lower_left_corner + u * horizontal + v * vertical - position);
 	}

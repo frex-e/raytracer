@@ -7,9 +7,10 @@
 #include <iostream>
 #include <chrono>
 
-const int SCREEN_WIDTH = 900/4;
-const int SCREEN_HEIGHT = 600/4;
-const int SCALE = 4;
+
+const int SCALE = 1;
+const int SCREEN_WIDTH = 1920/SCALE;
+const int SCREEN_HEIGHT = 1080/SCALE;
 
 
 SDL_Window* window = NULL;
@@ -62,6 +63,8 @@ bool init()
         std::cout << "texture could not be created! Error: " << SDL_GetError();
         return false;
     }
+
+    SDL_SetWindowFullscreen(window,0);
     
     // Allocate memory for pixels and initialize color
     pixels = (uint32_t*) malloc(SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(uint32_t));
@@ -77,9 +80,9 @@ bool init()
     auto material_centre = make_shared<Lambertian>(Vec3(0.7, 0.3, 0.7));
     auto material_gray = make_shared<Lambertian>(Vec3(0.7, 0.7, 0.7));
 
-    RSTATE->objects.add(make_shared<Sphere>(Vec3(0,0,-1),0.5,material_centre));
-    RSTATE->objects.add(make_shared<Sphere>(Vec3(0.7,-0.2,-1),0.3,material_gray));
-    RSTATE->objects.add(make_shared<Sphere>(Vec3(0, -100.5, -1), 100,material_ground));
+    RSTATE->objects.add(make_shared<Sphere>(Vec3(0,-0.4,-1),0.5,material_centre));
+    RSTATE->objects.add(make_shared<Sphere>(Vec3(0.5,-0.6,-0.7),0.3,material_ground));
+    RSTATE->objects.add(make_shared<Sphere>(Vec3(-0.2, -100.5, -1), 100,material_gray));
     
     return true;
 }
@@ -97,6 +100,15 @@ void close()
 void handelInput(SDL_Event e, bool *quit)
 {
     if (e.type == SDL_QUIT) *quit = true;
+
+    switch (e.key.keysym.sym)
+    {
+    case SDLK_ESCAPE:
+        *quit = true;
+        break;
+    default:
+        break;
+    }
 }
 
 
@@ -113,6 +125,9 @@ int main(int argc, char* args[]) {
 
 
 	// Keeps window to stay up.
+
+    MultiRenderer multiRenderer(12, pixels, RSTATE);
+
 	SDL_Event e;
 	bool quit = false;
 	while (quit == false)
@@ -124,12 +139,10 @@ int main(int argc, char* args[]) {
 		}
 
         // Render
-        render(pixels,RSTATE);
 
 		// Initialize render loop
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-		SDL_RenderClear(renderer);
-
+        multiRenderer.render(100);
 
 		SDL_LockTexture(texture, NULL, (void**)&pixel_bffr, &pitch);
 		pitch /= sizeof(uint32_t);

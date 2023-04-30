@@ -10,7 +10,7 @@ public:
 	Camera camera;
 	HittableList objects;
 
-	State(int width, int height) : h(height), w(width), camera(width, height, Vec3(0, 0, 0))
+	State(int width, int height) : h(height), w(width), camera(width, height, Vec3(0, -0.3, 0))
 	{
 	};
 };
